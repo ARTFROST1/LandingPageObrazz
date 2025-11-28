@@ -26,7 +26,7 @@ export function HowItWorksSection() {
   return (
     <section
       id="how-it-works"
-      className="py-section lg:py-section-lg px-6 lg:px-12 bg-background"
+      className="py-section lg:py-section-lg px-6 lg:px-12 gradient-subtle"
       data-testid="how-it-works-section"
     >
       <div className="max-w-6xl mx-auto">

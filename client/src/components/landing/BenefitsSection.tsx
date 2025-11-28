@@ -58,11 +58,11 @@ export function BenefitsSection() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <Card
-                className="p-8 bg-background"
+                className="p-8 bg-background/80 backdrop-blur-sm glass-card glow-subtle"
                 data-testid={`card-benefit-${index}`}
               >
                 <div className="flex items-start gap-5">
-                  <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-lg bg-muted">
+                  <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 shadow-sm">
                     <benefit.icon className="w-6 h-6 text-foreground" strokeWidth={1.5} />
                   </div>
                   <div>

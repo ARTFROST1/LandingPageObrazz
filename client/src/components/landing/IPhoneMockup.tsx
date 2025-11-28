@@ -49,11 +49,20 @@ export function IPhoneMockup({
       className={`relative ${sizeClasses[size]} ${className}`}
       data-testid="iphone-mockup"
     >
+      {/* Subtle glow effect behind the phone */}
+      <div 
+        className="absolute inset-0 -z-10 blur-3xl opacity-30"
+        style={{
+          background: "radial-gradient(ellipse at center, rgba(120, 120, 120, 0.3), transparent 70%)",
+          transform: "scale(1.2) translateY(10%)",
+        }}
+      />
+      
       <div
-        className="relative bg-black rounded-[2.5rem] p-2 shadow-2xl"
+        className="relative bg-gradient-to-b from-gray-800 to-black rounded-[2.5rem] p-2"
         style={{
           boxShadow:
-            "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.1)",
+            "0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
         }}
       >
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[35%] h-7 bg-black rounded-b-2xl z-10" />

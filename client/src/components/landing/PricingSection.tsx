@@ -35,7 +35,7 @@ export function PricingSection() {
   return (
     <section
       id="pricing"
-      className="py-section lg:py-section-lg px-6 lg:px-12 bg-background"
+      className="py-section lg:py-section-lg px-6 lg:px-12 gradient-pricing"
       data-testid="pricing-section"
     >
       <div className="max-w-4xl mx-auto">
@@ -64,10 +64,10 @@ export function PricingSection() {
               transition={{ duration: 0.6, delay: index * 0.15 }}
             >
               <Card
-                className={`p-8 h-full flex flex-col ${
+                className={`p-8 h-full flex flex-col glow-subtle ${
                   plan.highlighted
                     ? "bg-primary text-primary-foreground"
-                    : "bg-background"
+                    : "bg-background/80 backdrop-blur-sm glass-card"
                 }`}
                 data-testid={`card-pricing-${index}`}
               >

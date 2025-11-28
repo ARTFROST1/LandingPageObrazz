@@ -7,7 +7,7 @@ export function CTASection() {
   return (
     <section
       id="cta"
-      className="py-section lg:py-section-lg px-6 lg:px-12 bg-background"
+      className="py-section lg:py-section-lg px-6 lg:px-12 gradient-cta"
       data-testid="cta-section"
     >
       <div className="max-w-4xl mx-auto text-center">
@@ -52,7 +52,11 @@ export function CTASection() {
           className="flex justify-center"
         >
           <IPhoneMockup
-            screenshots={["OBRAZZ", "Ваш стиль", "Каждый день"]}
+            screenshots={[
+              "/screenshots/cta-1.png",
+              "/screenshots/cta-2.png",
+              "/screenshots/cta-3.png"
+            ]}
             autoScroll={true}
             interval={3000}
             size="xl"

@@ -6,7 +6,7 @@ import { SiVk, SiTelegram } from "react-icons/si";
 export function Footer() {
   return (
     <footer
-      className="py-16 px-6 lg:px-12 bg-footer-bg"
+      className="py-16 px-6 lg:px-12 gradient-footer"
       data-testid="footer"
     >
       <div className="max-w-6xl mx-auto">
@@ -19,12 +19,19 @@ export function Footer() {
         >
           {/* Логотип и описание */}
           <div>
-            <h3
-              className="text-2xl font-bold tracking-tight mb-2 text-foreground"
-              data-testid="text-footer-logo"
-            >
-              OBRAZZ
-            </h3>
+            <div className="flex items-center gap-3 mb-3">
+              <img 
+                src="/logo.png" 
+                alt="OBRAZZ Logo" 
+                className="w-10 h-10 rounded-xl shadow-md"
+              />
+              <h3
+                className="text-2xl font-bold tracking-tight text-foreground"
+                data-testid="text-footer-logo"
+              >
+                OBRAZZ
+              </h3>
+            </div>
             <p className="text-sm text-muted-foreground mb-4">
               AI-powered персональный гардероб
             </p>

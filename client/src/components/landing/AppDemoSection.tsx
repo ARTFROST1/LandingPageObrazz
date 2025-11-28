@@ -20,7 +20,7 @@ export function AppDemoSection() {
   return (
     <section
       id="demo"
-      className="py-section lg:py-section-lg px-6 lg:px-12 bg-background"
+      className="py-section lg:py-section-lg px-6 lg:px-12 gradient-mesh"
       data-testid="app-demo-section"
     >
       <div className="max-w-7xl mx-auto">

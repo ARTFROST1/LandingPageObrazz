@@ -23,7 +23,7 @@ export function ProblemSolutionSection() {
   return (
     <section
       id="problem"
-      className="py-section lg:py-section-lg px-6 lg:px-12 bg-background"
+      className="py-section lg:py-section-lg px-6 lg:px-12 gradient-subtle"
       data-testid="problem-solution-section"
     >
       <div className="max-w-6xl mx-auto">
@@ -53,8 +53,8 @@ export function ProblemSolutionSection() {
               className="text-center"
               data-testid={`card-problem-${index}`}
             >
-              <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                <problem.icon className="w-10 h-10 text-foreground" strokeWidth={1.5} />
+              <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 shadow-sm">
+                <problem.icon className="w-8 h-8 text-foreground" strokeWidth={1.5} />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-2">
                 {problem.title}

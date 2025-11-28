@@ -5,7 +5,7 @@ export function SocialFeedSection() {
   return (
     <section
       id="social-feed"
-      className="py-section lg:py-section-lg px-6 lg:px-12 bg-section-alt"
+      className="py-section lg:py-section-lg px-6 lg:px-12 gradient-mesh"
       data-testid="social-feed-section"
     >
       <div className="max-w-4xl mx-auto text-center">
