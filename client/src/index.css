@@ -43,7 +43,10 @@
   --chart-3: 0 0% 35%;
   --chart-4: 0 0% 45%;
   --chart-5: 0 0% 55%;
-  --font-sans: Open Sans, sans-serif;
+  --section-bg: 0 0% 97%;
+  --section-bg-alt: 0 0% 98%;
+  --footer-bg: 0 0% 96%;
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
   --radius: .5rem;
@@ -168,6 +171,10 @@
 @layer base {
   * {
     @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {

@@ -6,9 +6,10 @@ export default {
   theme: {
     extend: {
       borderRadius: {
-        lg: ".5625rem", /* 9px */
-        md: ".375rem", /* 6px */
-        sm: ".1875rem", /* 3px */
+        lg: "1.625rem", /* 26px - iOS style */
+        md: "1.25rem", /* 20px - iOS style */
+        sm: ".625rem", /* 10px */
+        ios: "2.5rem", /* 40px - for iPhone mockup */
       },
       colors: {
         // Flat / base colors (regular buttons)
@@ -81,11 +82,20 @@ export default {
           busy: "rgb(239 68 68)",
           offline: "rgb(156 163 175)",
         },
+        section: {
+          DEFAULT: "hsl(var(--section-bg) / <alpha-value>)",
+          alt: "hsl(var(--section-bg-alt) / <alpha-value>)",
+        },
+        "footer-bg": "hsl(var(--footer-bg) / <alpha-value>)",
       },
       fontFamily: {
         sans: ["var(--font-sans)"],
         serif: ["var(--font-serif)"],
         mono: ["var(--font-mono)"],
+      },
+      spacing: {
+        'section': '8rem', /* 128px - section spacing */
+        'section-lg': '10rem', /* 160px - large section spacing */
       },
       keyframes: {
         "accordion-down": {
