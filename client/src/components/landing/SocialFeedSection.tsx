@@ -38,7 +38,7 @@ export function SocialFeedSection() {
           className="flex justify-center"
         >
           <IPhoneMockup
-            screenshots={["Лента образов"]}
+            screenshots={["/screenshots/social-feed.png"]}
             size="xl"
           />
         </motion.div>

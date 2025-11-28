@@ -6,19 +6,19 @@ const steps = [
     number: "01",
     title: "Загрузите одежду",
     description: "Умное удаление фона и автоматическая категоризация.",
-    screen: "Загрузка фото",
+    screen: "/screenshots/step-upload.png",
   },
   {
     number: "02",
     title: "Создавайте образы",
     description: "Drag & Drop, масштабирование, кастомные фоны.",
-    screen: "Редактор образов",
+    screen: "/screenshots/step-editor.png",
   },
   {
     number: "03",
     title: "Получайте подборки от AI",
     description: "Луки под ваш стиль, сезон и гардероб.",
-    screen: "AI рекомендации",
+    screen: "/screenshots/step-ai.png",
   },
 ];
 

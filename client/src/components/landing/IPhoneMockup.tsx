@@ -17,6 +17,7 @@ export function IPhoneMockup({
   size = "lg",
 }: IPhoneMockupProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imageErrors, setImageErrors] = useState<Set<number>>(new Set());
 
   useEffect(() => {
     if (!autoScroll || screenshots.length <= 1) return;
@@ -33,6 +34,14 @@ export function IPhoneMockup({
     md: "w-[220px]",
     lg: "w-[280px]",
     xl: "w-[320px]",
+  };
+
+  const handleImageError = (index: number) => {
+    setImageErrors(prev => new Set(prev).add(index));
+  };
+
+  const isImagePath = (path: string) => {
+    return path.startsWith('/') || path.startsWith('http') || path.endsWith('.png') || path.endsWith('.jpg') || path.endsWith('.jpeg') || path.endsWith('.webp');
   };
 
   return (
@@ -59,16 +68,25 @@ export function IPhoneMockup({
               transition={{ duration: 0.5 }}
               className="absolute inset-0"
             >
-              <div className="w-full h-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
-                <div className="text-center px-4">
-                  <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-black flex items-center justify-center">
-                    <span className="text-white text-lg font-bold">O</span>
+              {isImagePath(screenshots[currentIndex]) && !imageErrors.has(currentIndex) ? (
+                <img
+                  src={screenshots[currentIndex]}
+                  alt={`Экран приложения ${currentIndex + 1}`}
+                  className="w-full h-full object-cover"
+                  onError={() => handleImageError(currentIndex)}
+                />
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+                  <div className="text-center px-4">
+                    <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-black flex items-center justify-center">
+                      <span className="text-white text-lg font-bold">O</span>
+                    </div>
+                    <p className="text-xs text-gray-400 font-medium">
+                      {screenshots[currentIndex] || "Экран приложения"}
+                    </p>
                   </div>
-                  <p className="text-xs text-gray-400 font-medium">
-                    {screenshots[currentIndex] || "Экран приложения"}
-                  </p>
                 </div>
-              </div>
+              )}
             </motion.div>
           </AnimatePresence>
         </div>

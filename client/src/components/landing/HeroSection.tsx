@@ -52,7 +52,11 @@ export function HeroSection() {
         className="mb-12"
       >
         <IPhoneMockup
-          screenshots={["Гардероб", "Конструктор образов", "AI-подборка"]}
+          screenshots={[
+            "/screenshots/hero-1.png",
+            "/screenshots/hero-2.png",
+            "/screenshots/hero-3.png"
+          ]}
           autoScroll={true}
           interval={3500}
           size="xl"

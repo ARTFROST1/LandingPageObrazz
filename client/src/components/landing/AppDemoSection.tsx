@@ -3,15 +3,15 @@ import { IPhoneMockup } from "./IPhoneMockup";
 
 const demos = [
   {
-    screen: "Гардероб",
+    screen: "/screenshots/demo-wardrobe.png",
     label: "Каталог вещей",
   },
   {
-    screen: "Конструктор",
+    screen: "/screenshots/demo-constructor.png",
     label: "Drag & Drop редактор",
   },
   {
-    screen: "AI-стилист",
+    screen: "/screenshots/demo-ai.png",
     label: "AI-стилист",
   },
 ];
