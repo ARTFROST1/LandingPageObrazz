@@ -1,0 +1,33 @@
+# Development files
+.git
+.gitignore
+*.md
+!README.md
+Docs/
+
+# Server files (not needed for static deploy)
+server/
+script/
+drizzle.config.ts
+
+# Test and config files
+*.test.*
+*.spec.*
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Misc
+attached_assets/
+*.tar.gz
