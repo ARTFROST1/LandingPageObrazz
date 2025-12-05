@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { IPhoneMockup } from "./IPhoneMockup";
 import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Presentation } from "lucide-react";
 import { SiApple, SiGoogleplay } from "react-icons/si";
+import { Link } from "wouter";
 
 export function HeroSection() {
   const scrollToSection = (id: string) => {
@@ -18,6 +19,21 @@ export function HeroSection() {
       className="min-h-screen flex flex-col items-center justify-center px-6 lg:px-12 py-20 gradient-hero"
       data-testid="hero-section"
     >
+      {/* Pitch page link */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="absolute top-6 right-6"
+      >
+        <Link href="/pitch">
+          <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground gap-2">
+            <Presentation className="w-4 h-4" />
+            <span className="hidden sm:inline">Pitch Deck</span>
+          </Button>
+        </Link>
+      </motion.div>
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
