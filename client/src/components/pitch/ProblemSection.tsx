@@ -1,57 +1,6 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import { Shirt, Clock, Heart, AlertCircle, Package, Calendar, Zap } from "lucide-react";
-
-const problems = [
-  {
-    icon: Clock,
-    title: "17 минут каждое утро",
-    description: "Среднее время на выбор одежды",
-    stat: "6 месяцев",
-    statLabel: "потрачено за жизнь (18-60 лет)",
-  },
-  {
-    icon: Heart,
-    title: "62% испытывают стресс",
-    description: "Гнев и ярость при выборе",
-    stat: "Эмоциональное",
-    statLabel: "истощение",
-  },
-  {
-    icon: AlertCircle,
-    title: "Влияет на повседневность",
-    description: "Проблемы в личной жизни",
-    stat: "14%",
-    statLabel: "меняют планы из-за одежды",
-  },
-];
-
-const researchStats = [
-  {
-    icon: Package,
-    title: "152 предмета",
-    description: "В среднем в гардеробе",
-    detail: "Но используется только 44% регулярно",
-  },
-  {
-    icon: Shirt,
-    title: "11 вещей с бирками",
-    description: "Никогда не надевались",
-    detail: "Потраченные деньги впустую",
-  },
-  {
-    icon: Zap,
-    title: "1 из 5 ссорится",
-    description: "С партнером из-за выбора",
-    detail: "Долгие раздумья перед гардеробом",
-  },
-  {
-    icon: Calendar,
-    title: "10% опаздывают",
-    description: "На работу из-за выбора одежды",
-    detail: "Временные затраты приводят к последствиям",
-  },
-];
+import { Shirt, Clock, Heart, AlertCircle, Package, Calendar, Zap, TrendingDown } from "lucide-react";
 
 export function ProblemSection() {
   return (
@@ -79,70 +28,211 @@ export function ProblemSection() {
           </p>
         </motion.div>
 
-        {/* Main problems grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-16">
-          {problems.map((problem, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-            >
-              <Card className="p-8 h-full bg-background/80 backdrop-blur-sm glass-card glow-subtle text-center">
-                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 shadow-sm">
-                  <problem.icon className="w-8 h-8 text-foreground" strokeWidth={1.5} />
+        {/* Hero stat - большая карточка */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mb-8"
+        >
+          <Card className="relative overflow-hidden bg-black text-white p-6 lg:p-8">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+            
+            <div className="relative flex flex-col lg:flex-row items-center justify-between gap-6">
+              <div className="flex-1 text-center lg:text-left">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full text-xs font-medium mb-3">
+                  <Clock className="w-3 h-3" />
+                  Главная статистика
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">
-                  {problem.title}
-                </h3>
-                <p className="text-muted-foreground mb-6">{problem.description}</p>
-                
-                <div className="pt-6 border-t border-border">
-                  <p className="text-3xl font-bold text-foreground mb-1">{problem.stat}</p>
-                  <p className="text-sm text-muted-foreground">{problem.statLabel}</p>
+                <p className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2">17 мин</p>
+                <p className="text-base text-white/70">каждое утро на выбор одежды</p>
+              </div>
+              
+              <div className="w-px h-20 bg-white/20 hidden lg:block" />
+              
+              <div className="text-center lg:text-right">
+                <p className="text-3xl sm:text-4xl font-bold text-white/90 mb-2">= 6 месяцев</p>
+                <p className="text-sm text-white/60">потрачено за всю жизнь (18-60 лет)</p>
+              </div>
+            </div>
+          </Card>
+        </motion.div>
+
+        {/* Bento grid layout */}
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-4 lg:gap-6 mb-8">
+          {/* Большая карточка - стресс */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="md:col-span-4"
+          >
+            <Card className="h-full p-8 bg-gradient-to-br from-background to-muted/30 backdrop-blur-sm border-border/50">
+              <div className="flex flex-col sm:flex-row items-start gap-6">
+                <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
+                  <Heart className="w-8 h-8 text-foreground" strokeWidth={1.5} />
                 </div>
-              </Card>
-            </motion.div>
-          ))}
+                <div className="flex-1">
+                  <p className="text-5xl font-bold text-foreground mb-2">62%</p>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
+                    испытывают стресс и раздражение
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Гнев и ярость при выборе одежды — частые спутники утренних сборов. 
+                    Эмоциональное истощение накапливается день за днём.
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+
+          {/* Маленькая карточка - опоздания */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="md:col-span-2"
+          >
+            <Card className="h-full p-6 bg-background/80 backdrop-blur-sm border-border/50 flex flex-col justify-between">
+              <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 mb-4">
+                <Calendar className="w-6 h-6 text-foreground" strokeWidth={1.5} />
+              </div>
+              <div>
+                <p className="text-4xl font-bold text-foreground mb-1">10%</p>
+                <p className="text-sm font-medium text-muted-foreground">опаздывают на работу</p>
+                <p className="text-xs text-muted-foreground/70 mt-2">из-за выбора одежды</p>
+              </div>
+            </Card>
+          </motion.div>
+
+          {/* Маленькая карточка - планы */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="md:col-span-2"
+          >
+            <Card className="h-full p-6 bg-background/80 backdrop-blur-sm border-border/50 flex flex-col justify-between">
+              <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 mb-4">
+                <AlertCircle className="w-6 h-6 text-foreground" strokeWidth={1.5} />
+              </div>
+              <div>
+                <p className="text-4xl font-bold text-foreground mb-1">14%</p>
+                <p className="text-sm font-medium text-muted-foreground">меняют планы</p>
+                <p className="text-xs text-muted-foreground/70 mt-2">из-за проблем с нарядом</p>
+              </div>
+            </Card>
+          </motion.div>
+
+          {/* Средняя карточка - ссоры */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="md:col-span-2"
+          >
+            <Card className="h-full p-6 bg-background/80 backdrop-blur-sm border-border/50 flex flex-col justify-between">
+              <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 mb-4">
+                <Zap className="w-6 h-6 text-foreground" strokeWidth={1.5} />
+              </div>
+              <div>
+                <p className="text-4xl font-bold text-foreground mb-1">1 из 5</p>
+                <p className="text-sm font-medium text-muted-foreground">ссорится с партнером</p>
+                <p className="text-xs text-muted-foreground/70 mt-2">из-за долгих раздумий</p>
+              </div>
+            </Card>
+          </motion.div>
+
+          {/* Карточка с иконкой - неиспользуемые вещи */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="md:col-span-2"
+          >
+            <Card className="h-full p-6 bg-background/80 backdrop-blur-sm border-border/50">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
+                  <Shirt className="w-6 h-6 text-foreground" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <p className="text-2xl font-bold text-foreground mb-1">11 вещей</p>
+                  <p className="text-sm text-muted-foreground">с бирками — никогда не надевались</p>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
         </div>
 
-        {/* Research findings grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-          {researchStats.map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
-              <Card className="p-6 h-full bg-background/80 backdrop-blur-sm glass-card">
-                <div className="w-12 h-12 mb-4 flex items-center justify-center rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 shadow-sm">
-                  <stat.icon className="w-6 h-6 text-foreground" strokeWidth={1.5} />
+        {/* Горизонтальные карточки статистики */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <Card className="p-6 bg-background/60 backdrop-blur-sm border-border/50">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-gradient-to-br from-gray-100 to-gray-50 dark:from-gray-800 dark:to-gray-900">
+                  <Package className="w-7 h-7 text-foreground" strokeWidth={1.5} />
                 </div>
-                <p className="text-2xl font-bold text-foreground mb-1">{stat.title}</p>
-                <p className="text-sm font-medium text-muted-foreground mb-2">{stat.description}</p>
-                <p className="text-xs text-muted-foreground/70 leading-relaxed">{stat.detail}</p>
-              </Card>
-            </motion.div>
-          ))}
+                <div className="flex-1">
+                  <div className="flex items-baseline gap-2">
+                    <p className="text-3xl font-bold text-foreground">152</p>
+                    <p className="text-sm text-muted-foreground">предмета в гардеробе</p>
+                  </div>
+                  <p className="text-xs text-muted-foreground/70 mt-1">Но используется только 44% регулярно</p>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+          >
+            <Card className="p-6 bg-background/60 backdrop-blur-sm border-border/50">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-gradient-to-br from-gray-100 to-gray-50 dark:from-gray-800 dark:to-gray-900">
+                  <TrendingDown className="w-7 h-7 text-foreground" strokeWidth={1.5} />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-baseline gap-2">
+                    <p className="text-3xl font-bold text-foreground">56%</p>
+                    <p className="text-sm text-muted-foreground">вещей не используется</p>
+                  </div>
+                  <p className="text-xs text-muted-foreground/70 mt-1">Потраченные деньги и место впустую</p>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
         </div>
 
-        {/* Key insights */}
+        {/* Key insight - вывод */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="space-y-4"
+          transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <Card className="p-6 bg-black text-white">
+          <Card className="p-6 lg:p-8 bg-black text-white">
             <div className="flex items-start gap-4">
-              <AlertCircle className="w-6 h-6 flex-shrink-0 mt-1" />
+              <div className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 flex-shrink-0">
+                <AlertCircle className="w-5 h-5" />
+              </div>
               <div>
-                <p className="font-semibold mb-3">Вывод исследования:</p>
-                <p className="text-sm text-white/80 leading-relaxed">
+                <p className="font-semibold mb-2 text-white/90">Вывод исследования</p>
+                <p className="text-sm text-white/70 leading-relaxed">
                   Несмотря на полный шкаф (152 предмета), женщины ежедневно сталкиваются с парадоксом — они не находят подходящей одежды. Это не только тратит время, но и вызывает эмоциональный стресс, влияет на отношения и даже приводит к опозданиям на работу.
                 </p>
               </div>

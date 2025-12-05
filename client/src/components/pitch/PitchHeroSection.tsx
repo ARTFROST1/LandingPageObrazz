@@ -37,17 +37,6 @@ export function PitchHeroSection() {
         transition={{ duration: 0.8 }}
         className="text-center max-w-4xl mx-auto"
       >
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-black/5 rounded-full mb-8"
-        >
-          <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-          <span className="text-sm font-medium text-muted-foreground">Презентация 2025</span>
-        </motion.div>
-
         {/* Logo and Brand */}
         <div className="flex items-center justify-center gap-4 mb-6">
           <motion.div
@@ -75,34 +64,48 @@ export function PitchHeroSection() {
         </div>
         
         <p className="text-xl sm:text-2xl text-muted-foreground font-medium mb-4">
-          ИИ-powered персональный гардероб
+          ИИ персональный гардероб
         </p>
         
         <p className="text-lg sm:text-xl text-foreground/80 max-w-2xl mx-auto mb-4 leading-relaxed font-medium">
           Где каждая вещь находит свой идеальный образ
         </p>
 
-        <p className="text-base text-muted-foreground/70 max-w-xl mx-auto mb-12 leading-relaxed">
+        <p className="text-base text-muted-foreground/70 max-w-xl mx-auto mb-8 leading-relaxed">
           Мобильное приложение для создания и организации персонального гардероба 
           с функциями ручного и ИИ-подбора стильных образов
         </p>
 
-        {/* Key metrics */}
+
+        {/* Key metrics - hook */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto mb-12"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12"
         >
           {[
-            { label: "Старт MVP", value: "Январь 2026" },
-            { label: "Целевая аудитория", value: "2-3M" },
-            { label: "Бизнес-модель", value: "Freemium → Premium" },
-            { label: "Окупаемость", value: "~7 мес" },
+            { 
+              label: "Проблема", 
+              value: "Нечего надеть", 
+              detail: "женщины тратят на выбор одежды"
+            },
+            { 
+              label: "Решение", 
+              value: "ИИ + ручной подбор", 
+              detail: "создание образов за секунды"
+            },
+            { 
+              label: "Рынок", 
+              value: "2-3 млн женщин", 
+              detail: "без конкурента в России"
+            },
           ].map((metric, index) => (
-            <div key={index} className="text-center">
-              <p className="text-2xl sm:text-3xl font-bold text-foreground">{metric.value}</p>
-              <p className="text-sm text-muted-foreground">{metric.label}</p>
+            <div key={index} className="text-center p-4 rounded-2xl bg-black/5">
+              <span className="text-2xl mb-2 block">{metric.emoji}</span>
+              <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">{metric.label}</p>
+              <p className="text-xl sm:text-2xl font-bold text-foreground mb-1">{metric.value}</p>
+              <p className="text-xs text-muted-foreground">{metric.detail}</p>
             </div>
           ))}
         </motion.div>
@@ -122,7 +125,27 @@ export function PitchHeroSection() {
           Начать презентацию
           <ChevronDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
         </Button>
+
+        <div className="mb-20" />
       </motion.div>
+<div className="mb-20" />
+        {/* Team members */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-12"
+        >
+          <p className="text-xs text-muted-foreground/60 uppercase tracking-wider mb-3">Презентуют</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            <span className="text-sm font-medium text-foreground/80">Артемий Морозов</span>
+            <span className="w-1 h-1 bg-foreground/30 rounded-full hidden sm:block" />
+            <span className="text-sm font-medium text-foreground/80">Салим Сокуров</span>
+            <span className="w-1 h-1 bg-foreground/30 rounded-full hidden sm:block" />
+            <span className="text-sm font-medium text-foreground/80">Магамед Энгиноев</span>
+          </div>
+        </motion.div>
+
     </section>
   );
 }

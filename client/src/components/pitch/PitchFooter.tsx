@@ -184,18 +184,51 @@ export function PitchFooter() {
           </div>
         </motion.div>
 
-        {/* Footer bottom */}
+        {/* Footer bottom - Thank you section */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="pt-8 border-t border-border text-center"
+          className="pt-12 border-t border-border"
         >
-          <p className="text-sm text-muted-foreground mb-2">
-            Спасибо за внимание! 🚀
-          </p>
-          <p className="text-sm text-muted-foreground">
+          {/* Stylish thank you */}
+          <div className="text-center mb-8">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="inline-block"
+            >
+              <p className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4">
+                Спасибо!
+              </p>
+              <p className="text-lg text-muted-foreground mb-6">
+                За ваше время и внимание
+              </p>
+            </motion.div>
+            
+            {/* Team signatures */}
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 mb-8">
+              <div className="text-center">
+                <p className="text-sm font-medium text-foreground">Артемий Морозов</p>
+                <p className="text-xs text-muted-foreground">Разработчик</p>
+              </div>
+              <div className="w-px h-8 bg-border hidden sm:block" />
+              <div className="text-center">
+                <p className="text-sm font-medium text-foreground">Салим Сокуров</p>
+                <p className="text-xs text-muted-foreground">Дизайнер</p>
+              </div>
+              <div className="w-px h-8 bg-border hidden sm:block" />
+              <div className="text-center">
+                <p className="text-sm font-medium text-foreground">Магамед Энгиноев</p>
+                <p className="text-xs text-muted-foreground">Маркетинг</p>
+              </div>
+            </div>
+          </div>
+          
+          <p className="text-sm text-muted-foreground text-center">
             &copy; {new Date().getFullYear()} OBRAZZ. Разработано{" "}
             <a
               href="https://frostmoon-tech.vercel.app/"
