@@ -1,58 +1,63 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import { TrendingUp, DollarSign, Target, Rocket } from "lucide-react";
+import { TrendingUp, DollarSign, Target, Rocket, CheckCircle } from "lucide-react";
 
 const financialProjections = [
   {
     period: "Месяц 1-3",
-    users: "100",
-    paying: "4",
-    mrr: "2,000₽",
-    status: "Убыток",
-    statusColor: "text-red-500",
+    users: "4,700",
+    paying: "482",
+    mrr: "222K₽",
+    status: "Инвестиции",
+    statusColor: "text-yellow-600",
   },
   {
     period: "Месяц 4-6",
-    users: "1,000",
-    paying: "40",
-    mrr: "19,500₽",
+    users: "11,100",
+    paying: "1,147",
+    mrr: "528K₽",
     status: "✅ Прибыль",
     statusColor: "text-green-600",
   },
   {
     period: "Месяц 7-12",
-    users: "2,000",
-    paying: "100",
-    mrr: "48,500₽",
-    status: "Рост",
+    users: "33,200",
+    paying: "3,434",
+    mrr: "1.58M₽",
+    status: "Масштабирование",
     statusColor: "text-blue-500",
   },
 ];
 
 const yearSummary = [
-  { label: "Стартовый капитал", value: "15,000₽" },
-  { label: "Чистая прибыль за год", value: "172,500₽" },
-  { label: "ROI за год", value: "1,150%" },
-  { label: "Окупаемость", value: "7 месяцев" },
+  { label: "Стартовые инвестиции", value: "187.4K₽" },
+  { label: "Чистая прибыль за год", value: "1.52M₽" },
+  { label: "ROI за год", value: "813%" },
+  { label: "Окупаемость", value: "5 мес" },
 ];
 
 const costs = {
   startup: [
+    { item: "Разработчик (единоразово)", cost: "100,000₽" },
+    { item: "Дизайнер (единоразово)", cost: "75,000₽" },
     { item: "Apple Developer Account", cost: "9,900₽" },
     { item: "Google Play Developer", cost: "2,500₽" },
-    { item: "Pixian API (удаление фона)", cost: "500₽" },
-    { item: "Хостинг (2 месяца)", cost: "2,000₽" },
   ],
   monthly: [
-    { item: "Apple Developer", cost: "825₽" },
-    { item: "Google Play", cost: "208₽" },
-    { item: "Хостинг (Supabase)", cost: "1,000₽" },
-    { item: "DeepSeek ИИ API", cost: "500-1,000₽" },
-    { item: "Google Nano Banana API (примерка)", cost: "1,000-2,000₽" },
-    { item: "Pixian API", cost: "500₽" },
-    { item: "Маркетинг", cost: "10,000₽" },
+    { item: "Маркетолог (ЗП)", cost: "50,000₽" },
+    { item: "Supabase (хостинг)", cost: "2,500₽" },
+    { item: "Apple Developer (амортизация)", cost: "825₽" },
+    { item: "Соцсети: инфлюенсеры", cost: "145,000₽" },
+    { item: "Таргетированная реклама", cost: "50,000₽" }
   ],
 };
+
+const keyMetrics = [
+  { label: "Точка безубыточности", value: "~845", unit: "платящих" },
+  { label: "Средняя прибыль/подписчик", value: "294₽", unit: "/мес" },
+  { label: "Комиссия YooMoney", value: "~4%", unit: "от MRR" },
+  { label: "Конверсия Free→Paid", value: "10%", unit: "цель" },
+];
 
 export function FinancialsSection() {
   return (
@@ -76,7 +81,7 @@ export function FinancialsSection() {
             Быстрый рост, ранняя окупаемость
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Минимальные вложения, быстрая отдача
+            Выход на прибыль к 5 месяцу, ROI 813% за первый год
           </p>
         </motion.div>
 
@@ -104,6 +109,25 @@ export function FinancialsSection() {
           </Card>
         </motion.div>
 
+        {/* Key metrics */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
+        >
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {keyMetrics.map((metric, index) => (
+              <Card key={index} className="p-4 bg-background/80 backdrop-blur-sm glass-card text-center">
+                <p className="text-2xl font-bold text-foreground">{metric.value}</p>
+                <p className="text-xs text-muted-foreground">{metric.unit}</p>
+                <p className="text-sm font-medium text-foreground mt-1">{metric.label}</p>
+              </Card>
+            ))}
+          </div>
+        </motion.div>
+
         {/* Financial projections table */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -116,7 +140,7 @@ export function FinancialsSection() {
             <div className="p-6 border-b border-border flex items-center gap-2">
               <TrendingUp className="w-5 h-5 text-foreground" />
               <h3 className="text-xl font-semibold text-foreground">
-                Прогноз роста MRR
+                Прогноз роста выручки (MRR)
               </h3>
             </div>
             <div className="overflow-x-auto">
@@ -124,7 +148,7 @@ export function FinancialsSection() {
                 <thead>
                   <tr className="border-b border-border bg-black/5">
                     <th className="px-4 py-3 text-left text-sm font-medium text-foreground">Период</th>
-                    <th className="px-4 py-3 text-center text-sm font-medium text-foreground">Пользователи</th>
+                    <th className="px-4 py-3 text-center text-sm font-medium text-foreground">Всего польз.</th>
                     <th className="px-4 py-3 text-center text-sm font-medium text-foreground">Платных</th>
                     <th className="px-4 py-3 text-center text-sm font-medium text-foreground">MRR</th>
                     <th className="px-4 py-3 text-center text-sm font-medium text-foreground">Статус</th>
@@ -146,7 +170,7 @@ export function FinancialsSection() {
             <div className="p-4 bg-black/5 text-center">
               <p className="text-sm text-foreground font-medium">
                 <Target className="w-4 h-4 inline mr-2" />
-                Точка безубыточности: Месяц 4 (Апрель 2026)
+                Точка безубыточности: Месяц 5 (~845 платящих)
               </p>
             </div>
           </Card>
@@ -175,7 +199,7 @@ export function FinancialsSection() {
               </div>
               <div className="mt-4 pt-4 border-t border-border flex justify-between items-center">
                 <span className="font-semibold text-foreground">Итого</span>
-                <span className="font-bold text-foreground">~15,000₽</span>
+                <span className="font-bold text-foreground">~187,400₽</span>
               </div>
             </Card>
           </motion.div>
@@ -201,7 +225,7 @@ export function FinancialsSection() {
               </div>
               <div className="mt-4 pt-4 border-t border-border flex justify-between items-center">
                 <span className="font-semibold text-foreground">Итого</span>
-                <span className="font-bold text-foreground">~15,000₽/мес</span>
+                <span className="font-bold text-foreground">~248,325₽/мес</span>
               </div>
             </Card>
           </motion.div>

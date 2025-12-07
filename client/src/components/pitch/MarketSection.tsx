@@ -17,9 +17,9 @@ const marketData = [
   },
   {
     icon: MapPin,
-    title: "2-3M",
+    title: "50M+",
     subtitle: "Потенциал в России",
-    description: "Целевая аудитория женщин 14-55",
+    description: "Женщины 14-55 лет (Росстат)",
   },
   {
     icon: Users,
@@ -31,8 +31,8 @@ const marketData = [
 
 const targetAudience = {
   demographics: [
-    { label: "Пол", value: "Женский (85-90%)" },
-    { label: "Возраст", value: "14-55  лет" },
+    { label: "Пол", value: "Женский (80%)" },
+    { label: "Возраст", value: "14-55 лет" },
     { label: "География", value: "Россия, СНГ" },
     { label: "Интересы", value: "Мода, Instagram, Pinterest, TikTok" },
   ],
@@ -69,7 +69,7 @@ export function MarketSection() {
             РЫНОК
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight mb-4">
-            Растущий рынок + голубой океан
+            Свободная ниша в России
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Нет сильного русскоязычного конкурента с современным ИИ
@@ -104,7 +104,7 @@ export function MarketSection() {
           ))}
         </div>
 
-        {/* TAM SAM SOM */}
+        {/* Объём рынка: Общий → Доступный → Целевой */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -113,28 +113,32 @@ export function MarketSection() {
           className="mb-16"
         >
           <Card className="p-8 bg-black text-white">
-            <h3 className="text-xl font-semibold mb-6 text-center">Общий рынок → Доступный рынок → Целевой рынок</h3>
+            <h3 className="text-xl font-semibold mb-2 text-center">Объём рынка</h3>
+            <p className="text-sm text-white/60 text-center mb-6">Общий → Доступный → Целевой</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="w-25 h-25 mx-auto mb-5 rounded-full border-4 border-white/20 flex items-center justify-center">
-                  <span className="text-lg font-bold">Общий</span>
+                <div className="w-24 h-24 mx-auto mb-4 rounded-full border-4 border-white/20 flex items-center justify-center">
+                  <span className="text-sm font-bold">Общий</span>
+                </div>
+                <p className="text-2xl font-bold mb-1">50M+</p>
+                <p className="text-sm text-white/70">Женщины 14-55 лет в РФ</p>
+                <p className="text-xs text-white/50 mt-1">Данные Росстат 2024</p>
+              </div>
+              <div className="text-center">
+                <div className="w-24 h-24 mx-auto mb-4 rounded-full border-4 border-white/40 flex items-center justify-center">
+                  <span className="text-sm font-bold">Доступный</span>
                 </div>
                 <p className="text-2xl font-bold mb-1">2-3M</p>
-                <p className="text-sm text-white/70">Женщины 14-55 лет в РФ</p>
-              </div>
-              <div className="text-center">
-                <div className="w-25 h-25 mx-auto mb-5 rounded-full border-4 border-white/40 flex items-center justify-center">
-                  <span className="text-lg font-bold">Доступный</span>
-                </div>
-                <p className="text-2xl font-bold mb-1">500K</p>
                 <p className="text-sm text-white/70">Активные пользователи fashion-приложений</p>
+                <p className="text-xs text-white/50 mt-1">~5% от общего рынка</p>
               </div>
               <div className="text-center">
-                <div className="w-25 h-25 mx-auto mb-5 rounded-full border-4 border-white/60 flex items-center justify-center">
-                  <span className="text-lg font-bold">Целевой</span>
+                <div className="w-24 h-24 mx-auto mb-4 rounded-full border-4 border-white/60 flex items-center justify-center">
+                  <span className="text-sm font-bold">Целевой</span>
                 </div>
-                <p className="text-2xl font-bold mb-1">10K</p>
-                <p className="text-sm text-white/70">Цель первого года (2% охвата)</p>
+                <p className="text-2xl font-bold mb-1">33K</p>
+                <p className="text-sm text-white/70">Цель первого года</p>
+                <p className="text-xs text-white/50 mt-1">~1% от доступного рынка</p>
               </div>
             </div>
           </Card>

@@ -76,6 +76,22 @@ export function PitchHeroSection() {
           с функциями ручного и ИИ-подбора стильных образов
         </p>
 
+        {/* QR Code */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-12"
+        >
+          <img 
+            src="/qr-code.png" 
+            alt="QR Code презентации" 
+            className="w-80 h-80 sm:w-96 sm:h-96 lg:w-[28rem] lg:h-[28rem] mx-auto mb-3"
+          />
+          <p className="text-xs text-muted-foreground text-center">
+            Отсканируйте для просмотра на вашем устройстве
+          </p>
+        </motion.div>
 
         {/* Key metrics - hook */}
         <motion.div
@@ -87,8 +103,8 @@ export function PitchHeroSection() {
           {[
             { 
               label: "Проблема", 
-              value: "Нечего надеть", 
-              detail: "женщины тратят на выбор одежды"
+              value: "Нечего надеть",
+              detail: "80% женщин сталкиваются ежедневно"
             },
             { 
               label: "Решение", 
@@ -102,7 +118,6 @@ export function PitchHeroSection() {
             },
           ].map((metric, index) => (
             <div key={index} className="text-center p-4 rounded-2xl bg-black/5">
-              <span className="text-2xl mb-2 block">{metric.emoji}</span>
               <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">{metric.label}</p>
               <p className="text-xl sm:text-2xl font-bold text-foreground mb-1">{metric.value}</p>
               <p className="text-xs text-muted-foreground">{metric.detail}</p>

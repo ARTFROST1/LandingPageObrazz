@@ -1,5 +1,6 @@
 import { PitchHeroSection } from "@/components/pitch/PitchHeroSection";
 import { ProblemSection } from "@/components/pitch/ProblemSection";
+import { SurveyResultsSection } from "@/components/pitch/SurveyResultsSection";
 import { SolutionSection } from "@/components/pitch/SolutionSection";
 import { MarketSection } from "@/components/pitch/MarketSection";
 import { CompetitorsSection } from "@/components/pitch/CompetitorsSection";
@@ -26,6 +27,7 @@ export default function Pitch() {
       
       <PitchHeroSection />
       <ProblemSection />
+      <SurveyResultsSection />
       <SolutionSection />
       <MarketSection />
       <CompetitorsSection />
