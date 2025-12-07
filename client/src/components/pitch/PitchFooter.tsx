@@ -174,6 +174,24 @@ export function PitchFooter() {
             </a>
           </div>
 
+          {/* Telegram QR Code */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-8"
+          >
+            <img 
+              src="/tg_qr_code.png" 
+              alt="Telegram QR Code" 
+              className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 mx-auto mb-3"
+            />
+            <p className="text-xs text-muted-foreground text-center">
+              Свяжитесь с нами в Telegram
+            </p>
+          </motion.div>
+
           <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
             <Link href="/">
               <Button variant="outline" size="lg">
