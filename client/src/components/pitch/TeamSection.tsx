@@ -1,35 +1,23 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import { Code, Palette, BarChart3 } from "lucide-react";
+import { Users, Target, Lightbulb } from "lucide-react";
 
-const teamMembers = [
+const teamStrengths = [
   {
-    role: "Разработчик",
-    icon: Code,
-    skills: ["React Native", "Node.js", "TypeScript", "ИИ/ML"],
-    focus: "Разработка приложения",
-    description: "Архитектура, мобильная и серверная разработка, интеграция ИИ",
+    icon: Lightbulb,
+    title: "Видение продукта",
+    description: "Глубокое понимание проблемы и пути решения",
   },
   {
-    role: "Дизайнер UI/UX",
-    icon: Palette,
-    skills: ["Figma", "Прототипирование", "Дизайн-системы"],
-    focus: "Визуальный дизайн",
-    description: "Создание интерфейсов, пользовательский опыт, брендинг",
+    icon: Target,
+    title: "Фокус на результат",
+    description: "Четкие цели и метрики успеха",
   },
   {
-    role: "Менеджер по маркетингу",
-    icon: BarChart3,
-    skills: ["SMM", "Growth Hacking", "Analytics", "Content"],
-    focus: "Продвижение и рост",
-    description: "Стратегия продвижения, работа с аудиторией, аналитика",
+    icon: Users,
+    title: "Привлечение экспертов",
+    description: "Работа с профессионалами в разработке и дизайне",
   },
-];
-
-const workModel = [
-  { label: "Размер команды", value: "3 человека" },
-  { label: "Модель работы", value: "Распределение прибыли" },
-  { label: "Подход", value: "Бережливый стартап" },
 ];
 
 export function TeamSection() {
@@ -51,16 +39,16 @@ export function TeamSection() {
             КОМАНДА
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight mb-4">
-            Команда, которая делает это возможным
+            Команда основателей
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Компактная и эффективная команда
+            3 целеустремленных студента с четким видением будущего продукта
           </p>
         </motion.div>
 
-        {/* Team grid */}
+        {/* Team strengths */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {teamMembers.map((member, index) => (
+          {teamStrengths.map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
@@ -69,52 +57,34 @@ export function TeamSection() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <Card className="p-6 h-full bg-background/80 backdrop-blur-sm glass-card text-center">
-                <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 shadow-sm">
-                  <member.icon className="w-8 h-8 text-foreground" strokeWidth={1.5} />
+                <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 shadow-sm">
+                  <item.icon className="w-6 h-6 text-foreground" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-1">
-                  {member.role}
+                <h3 className="text-lg font-semibold text-foreground mb-2">
+                  {item.title}
                 </h3>
-                <p className="text-sm text-muted-foreground mb-2">
-                  {member.focus}
+                <p className="text-sm text-muted-foreground">
+                  {item.description}
                 </p>
-                <p className="text-xs text-muted-foreground/80 mb-4">
-                  {member.description}
-                </p>
-                <div className="flex flex-wrap justify-center gap-1">
-                  {member.skills.map((skill, i) => (
-                    <span
-                      key={i}
-                      className="text-xs px-2 py-1 bg-black/5 rounded-full text-muted-foreground"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
               </Card>
             </motion.div>
           ))}
         </div>
 
-        {/* Work model */}
+        {/* Approach */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <Card className="p-8 bg-black text-white">
-            <h3 className="text-xl font-semibold mb-6 text-center">
-              Модель работы
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {workModel.map((item, index) => (
-                <div key={index} className="text-center">
-                  <p className="text-2xl font-bold mb-1">{item.value}</p>
-                  <p className="text-sm text-white/70">{item.label}</p>
-                </div>
-              ))}
-            </div>
+          <Card className="p-8 bg-black text-white text-center">
+            <p className="text-xl font-medium mb-2">
+              Наш подход
+            </p>
+            <p className="text-white/70 max-w-2xl mx-auto">
+              Мы управляем проектом, привлекая профессиональных разработчиков и дизайнеров для реализации. Фокусируемся на стратегии, метриках и достижении целей.
+            </p>
           </Card>
         </motion.div>
       </div>

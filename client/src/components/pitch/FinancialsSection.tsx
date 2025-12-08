@@ -177,7 +177,7 @@ export function FinancialsSection() {
         </motion.div>
 
         {/* Costs breakdown */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -230,6 +230,42 @@ export function FinancialsSection() {
             </Card>
           </motion.div>
         </div>
+
+        {/* API Costs - Pay as you go */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <Card className="p-6 bg-background/60 backdrop-blur-sm border-border/50">
+            <h3 className="text-sm font-medium text-muted-foreground mb-4 uppercase tracking-wider">
+              Переменные затраты — API (по мере использования)
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="text-center p-3 rounded-lg bg-black/5">
+                <p className="text-xs text-muted-foreground mb-1">Mistral Small</p>
+                <p className="text-lg font-bold text-foreground">0.0018₽</p>
+                <p className="text-xs text-muted-foreground">описание вещи</p>
+              </div>
+              <div className="text-center p-3 rounded-lg bg-black/5">
+                <p className="text-xs text-muted-foreground mb-1">Pixian API</p>
+                <p className="text-lg font-bold text-foreground">0.08₽</p>
+                <p className="text-xs text-muted-foreground">удаление фона</p>
+              </div>
+              <div className="text-center p-3 rounded-lg bg-black/5">
+                <p className="text-xs text-muted-foreground mb-1">Mistral Nemo</p>
+                <p className="text-lg font-bold text-foreground">0.03₽</p>
+                <p className="text-xs text-muted-foreground">ИИ-стилист (100 вещей)</p>
+              </div>
+              <div className="text-center p-3 rounded-lg bg-black/5">
+                <p className="text-xs text-muted-foreground mb-1">Gemini 2.5 Flash</p>
+                <p className="text-lg font-bold text-foreground">3.00₽</p>
+                <p className="text-xs text-muted-foreground">ИИ-примерка</p>
+              </div>
+            </div>
+          </Card>
+        </motion.div>
       </div>
     </section>
   );
