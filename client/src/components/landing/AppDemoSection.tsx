@@ -1,18 +1,25 @@
 import { motion } from "framer-motion";
 import { IPhoneMockup } from "./IPhoneMockup";
+import { Package, Sparkles, Camera } from "lucide-react";
 
 const demos = [
   {
     screen: "/screenshots/demo-wardrobe.png",
-    label: "Каталог вещей",
+    label: "Цифровой гардероб",
+    description: "Добавление, хранение, ручной режим",
+    icon: Package,
   },
   {
     screen: "/screenshots/demo-constructor.png",
-    label: "Drag & Drop редактор",
+    label: "AI стилист",
+    description: "Автоматические луки, помощь со стилем",
+    icon: Sparkles,
   },
   {
     screen: "/screenshots/demo-ai.png",
-    label: "AI-стилист",
+    label: "Виртуальная примерка",
+    description: "Примерка образа перед покупкой",
+    icon: Camera,
   },
 ];
 
@@ -31,17 +38,21 @@ export function AppDemoSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
+          <span className="inline-block px-3 py-1 text-xs font-medium bg-black/5 rounded-full mb-4">
+            ВОЗМОЖНОСТИ
+          </span>
           <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight mb-4"
             data-testid="text-demo-title"
           >
-            Приложение, созданное для
-            <br />
-            визуального мышления
+            Всё для идеального образа
           </h2>
+          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+            Три главные функции в одном приложении
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14">
           {demos.map((demo, index) => (
             <motion.div
               key={index}
@@ -57,8 +68,14 @@ export function AppDemoSection() {
                 size="lg"
                 className="mb-6"
               />
-              <p className="text-base font-medium text-muted-foreground">
-                {demo.label}
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <demo.icon className="w-5 h-5 text-foreground" strokeWidth={1.5} />
+                <p className="text-lg font-semibold text-foreground">
+                  {demo.label}
+                </p>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                {demo.description}
               </p>
             </motion.div>
           ))}
