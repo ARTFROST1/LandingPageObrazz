@@ -61,7 +61,7 @@ export function SolutionSection() {
             РЕШЕНИЕ
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight mb-4">
-            Obrazz = Figma для моды
+            Obrazz = Карманный гардероб + ИИ-стилист
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Создавай стильные образы за секунды с помощью ИИ или вручную — 
