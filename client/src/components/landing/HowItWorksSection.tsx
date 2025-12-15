@@ -58,14 +58,18 @@ export function HowItWorksSection() {
               }`}
               data-testid={`step-${index}`}
             >
-              <div className="flex-1 text-center lg:text-left">
+              <div className={`flex-1 text-center ${
+                index === 1 ? "lg:text-left" : "lg:text-right"
+              }`}>
                 <span className="inline-block text-6xl lg:text-7xl font-bold text-muted mb-4">
                   {step.number}
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
                   {step.title}
                 </h3>
-                <p className="text-lg text-muted-foreground leading-relaxed max-w-md mx-auto lg:mx-0">
+                <p className={`text-lg text-muted-foreground leading-relaxed max-w-md mx-auto ${
+                  index === 1 ? "lg:mx-0" : "lg:ml-auto lg:mr-0"
+                }`}>
                   {step.description}
                 </p>
               </div>

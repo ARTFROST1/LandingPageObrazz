@@ -40,19 +40,6 @@ export function HeroSection() {
         transition={{ duration: 0.8 }}
         className="text-center max-w-4xl mx-auto"
       >
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/5 backdrop-blur-sm mb-8"
-        >
-          <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-          <span className="text-sm font-medium">Рейтинг 4.9</span>
-          <span className="w-px h-4 bg-black/10" />
-          <span className="text-sm text-muted-foreground">1K+ скачиваний</span>
-        </motion.div>
-
         {/* Logo and Brand */}
         <div className="flex items-center justify-center gap-4 mb-6">
           <motion.div

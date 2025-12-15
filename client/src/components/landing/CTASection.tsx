@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { IPhoneMockup } from "./IPhoneMockup";
 import { Button } from "@/components/ui/button";
 import { SiApple, SiGoogleplay } from "react-icons/si";
 import { Sparkles, ArrowRight, Download } from "lucide-react";
@@ -73,25 +72,6 @@ export function CTASection() {
           <p className="text-sm text-muted-foreground">
             Бесплатно для скачивания • Без регистрации для старта
           </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex justify-center"
-        >
-          <IPhoneMockup
-            screenshots={[
-              "/screenshots/cta-1.png",
-              "/screenshots/cta-2.png",
-              "/screenshots/cta-3.png"
-            ]}
-            autoScroll={true}
-            interval={3000}
-            size="xl"
-          />
         </motion.div>
       </div>
     </section>

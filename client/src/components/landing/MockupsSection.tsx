@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp, ArrowRight, Equal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface Mockup {
@@ -166,35 +166,53 @@ export function MockupsSection() {
                         </h3>
 
                         {/* Mockups Grid */}
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+                        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-6">
                           {subsection.mockups.map((mockup, mockupIndex) => (
-                            <motion.div
-                              key={mockupIndex}
-                              initial={{ opacity: 0, y: 20 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              viewport={{ once: true }}
-                              transition={{ duration: 0.5, delay: mockupIndex * 0.1 }}
-                              className="flex flex-col items-center"
-                            >
-                              {/* Mockup Image */}
-                              <div className="relative w-full max-w-[220px] mb-4">
-                                <img
-                                  src={mockup.image}
-                                  alt={mockup.description}
-                                  className="w-full h-auto"
-                                  loading="lazy"
-                                  onError={(e) => {
-                                    const target = e.target as HTMLImageElement;
-                                    target.style.display = "none";
-                                  }}
-                                />
-                              </div>
+                            <>
+                              <motion.div
+                                key={mockupIndex}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: mockupIndex * 0.1 }}
+                                className="flex flex-col items-center"
+                              >
+                                {/* Mockup Image */}
+                                <div className="relative w-full max-w-[220px] mb-4">
+                                  <img
+                                    src={mockup.image}
+                                    alt={mockup.description}
+                                    className="w-full h-auto"
+                                    loading="lazy"
+                                    onError={(e) => {
+                                      const target = e.target as HTMLImageElement;
+                                      target.style.display = "none";
+                                    }}
+                                  />
+                                </div>
 
-                              {/* Mockup Description */}
-                              <p className="text-center text-sm text-muted-foreground max-w-xs">
-                                {mockup.description}
-                              </p>
-                            </motion.div>
+                                {/* Mockup Description */}
+                                <p className="text-center text-sm text-muted-foreground max-w-xs">
+                                  {mockup.description}
+                                </p>
+                              </motion.div>
+                              {/* Icon between mockups */}
+                              {mockupIndex < subsection.mockups.length - 1 && (
+                                <motion.div
+                                  initial={{ opacity: 0 }}
+                                  whileInView={{ opacity: 1 }}
+                                  viewport={{ once: true }}
+                                  transition={{ duration: 0.5, delay: mockupIndex * 0.1 + 0.2 }}
+                                  className="hidden md:flex items-center justify-center text-muted-foreground mb-8"
+                                >
+                                  {subsection.title === "Визуальная примерка" && mockupIndex === 1 ? (
+                                    <Equal className="w-6 h-6" strokeWidth={2} />
+                                  ) : (
+                                    <ArrowRight className="w-6 h-6" strokeWidth={2} />
+                                  )}
+                                </motion.div>
+                              )}
+                            </>
                           ))}
                         </div>
                       </div>
