@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import { IPhoneMockup } from "./IPhoneMockup";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Presentation, Star, Download, Users } from "lucide-react";
+import { ChevronDown, Presentation, Star, Download, Users, LogIn, User } from "lucide-react";
 import { SiApple, SiGoogleplay } from "react-icons/si";
 import { Link } from "wouter";
+import { config } from "@/lib/config";
 
 export function HeroSection() {
   const scrollToSection = (id: string) => {
@@ -19,13 +20,25 @@ export function HeroSection() {
       className="min-h-screen flex flex-col items-center justify-center px-6 lg:px-12 py-20 gradient-hero relative"
       data-testid="hero-section"
     >
-      {/* Pitch page link */}
+      {/* Auth buttons and Pitch page link */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="absolute top-6 right-6"
+        className="absolute top-6 right-6 flex items-center gap-2"
       >
+        <a href={config.loginUrl} target="_blank" rel="noopener noreferrer">
+          <Button variant="outline" size="sm" className="gap-2 text-foreground hover:text-foreground">
+            <LogIn className="w-4 h-4" />
+            <span className="hidden sm:inline">Войти</span>
+          </Button>
+        </a>
+        <a href={config.dashboardUrl} target="_blank" rel="noopener noreferrer">
+          <Button size="sm" className="gap-2">
+            <User className="w-4 h-4" />
+            <span className="hidden sm:inline">Личный кабинет</span>
+          </Button>
+        </a>
         <Link href="/pitch">
           <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground gap-2">
             <Presentation className="w-4 h-4" />

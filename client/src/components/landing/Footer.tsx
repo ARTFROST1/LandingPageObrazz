@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { PrivacyModal } from "./PrivacyModal";
 import { TermsModal } from "./TermsModal";
 import { SiVk, SiTelegram } from "react-icons/si";
+import { config } from "@/lib/config";
 
 export function Footer() {
   return (
@@ -63,6 +64,26 @@ export function Footer() {
 
           {/* Ссылки */}
           <div className="flex flex-col space-y-3">
+            <a
+              href={config.dashboardUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium"
+              data-testid="link-dashboard"
+            >
+              Личный кабинет
+            </a>
+            
+            <a
+              href={config.loginUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+              data-testid="link-login"
+            >
+              Войти в аккаунт
+            </a>
+            
             <PrivacyModal>
               <button
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 text-left"
