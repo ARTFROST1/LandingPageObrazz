@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
       borderRadius: {
@@ -12,6 +12,17 @@ export default {
         ios: "2.5rem", /* 40px - for iPhone mockup */
       },
       colors: {
+        // Obrazz brand colors (used by dashboard + auth)
+        'brand': {
+          dark: '#1A1A2E',
+          primary: '#6C63FF',
+          accent: '#FF6B6B',
+          light: '#F5F5F5',
+          muted: '#999999',
+          border: '#E5E5E5',
+          text: '#1A1A2E',
+          'text-secondary': '#666666',
+        },
         // Flat / base colors (regular buttons)
         background: "hsl(var(--background) / <alpha-value>)",
         foreground: "hsl(var(--foreground) / <alpha-value>)",

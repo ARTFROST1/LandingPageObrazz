@@ -5,11 +5,6 @@
 !README.md
 Docs/
 
-# Server files (not needed for static deploy)
-server/
-script/
-drizzle.config.ts
-
 # Test and config files
 *.test.*
 *.spec.*
