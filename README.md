@@ -1,8 +1,6 @@
 # OBRAZZ Landing Page
 
-<p align="center">
-  <img src="client/public/logo.png" alt="OBRAZZ Logo" width="120" />
-</p>
+> Проект в текущем виде — **Next.js 15 (App Router)** landing + user dashboard.
 
 <p align="center">
   <strong>AI-powered персональный гардероб</strong>
@@ -33,7 +31,7 @@ OBRAZZ — это мобильное приложение, которое соч
 
 ### Особенности лендинга
 
-- ⚡ Молниеносная загрузка благодаря Vite
+- ⚡ Быстрая загрузка благодаря Next.js
 - 🎭 Плавные анимации с Framer Motion
 - 📱 Полностью адаптивный дизайн (mobile-first)
 - 🍎 iOS-inspired минималистичный дизайн
@@ -45,21 +43,18 @@ OBRAZZ — это мобильное приложение, которое соч
 ### Frontend
 | Технология | Описание |
 |------------|----------|
-| [React 18](https://react.dev/) | UI библиотека |
+| [React 19](https://react.dev/) | UI библиотека |
 | [TypeScript](https://www.typescriptlang.org/) | Типизация |
-| [Vite](https://vitejs.dev/) | Сборщик |
+| [Next.js](https://nextjs.org/) | Framework + сборка |
 | [Tailwind CSS](https://tailwindcss.com/) | Утилитарный CSS |
 | [Framer Motion](https://www.framer.com/motion/) | Анимации |
 | [Shadcn/ui](https://ui.shadcn.com/) | UI компоненты |
-| [Wouter](https://github.com/molefrog/wouter) | Роутинг |
-| [TanStack Query](https://tanstack.com/query) | Управление состоянием |
 
 ### Backend
 | Технология | Описание |
 |------------|----------|
-| [Express.js](https://expressjs.com/) | Web-сервер |
-| [Drizzle ORM](https://orm.drizzle.team/) | ORM для PostgreSQL |
-| [Neon](https://neon.tech/) | Serverless PostgreSQL |
+| [Supabase](https://supabase.com/) | Auth + DB + Storage |
+| [obrazz-api](../obrazz-api/) | Опциональный Node.js backend (платежи/AI/webhooks) |
 
 ## Установка
 
@@ -78,11 +73,12 @@ cd obrazz-landing
 # Установка зависимостей
 npm install
 
+```bash
 # Запуск в режиме разработки
 npm run dev
 ```
 
-Приложение будет доступно на `http://localhost:5000`
+Приложение будет доступно на `http://localhost:3001`
 
 ## Разработка
 
@@ -93,26 +89,20 @@ npm run dev
 | `npm run dev` | Запуск dev-сервера |
 | `npm run build` | Production сборка |
 | `npm run start` | Запуск production сервера |
-| `npm run check` | Проверка TypeScript |
-| `npm run db:push` | Применить схему к БД |
+| `npm run lint` | ESLint |
+| `npm run lint:fix` | ESLint (fix) |
 
 ### Структура проекта
 
 ```
 LandingPageObrazz/
-├── client/                 # Frontend приложение
-│   ├── src/
-│   │   ├── components/     # React компоненты
-│   │   │   ├── landing/    # Секции лендинга
-│   │   │   └── ui/         # Shadcn/ui компоненты
-│   │   ├── pages/          # Страницы
-│   │   ├── hooks/          # Custom хуки
-│   │   └── lib/            # Утилиты
-│   └── public/             # Статические файлы
-├── server/                 # Backend приложение
-├── shared/                 # Общий код (схемы)
+├── src/
+│   ├── app/                # Next.js App Router (landing + dashboard)
+│   ├── components/         # UI/components
+│   ├── hooks/              # React hooks
+│   └── lib/                # Supabase + API helpers
 ├── Docs/                   # Документация
-└── script/                 # Build скрипты
+└── (configs)               # next/tailwind/tsconfig и т.п.
 ```
 
 Подробнее о структуре: [Docs/PROJECT_STRUCTURE.md](./Docs/PROJECT_STRUCTURE.md)
@@ -129,15 +119,9 @@ npm run build
 npm run start
 ```
 
-### Docker (опционально)
+### Docker
 
-```bash
-# Сборка образа
-docker build -t obrazz-landing .
-
-# Запуск контейнера
-docker run -p 5000:5000 obrazz-landing
-```
+Dockerfile сейчас не основной путь деплоя (ориентируемся на Vercel/Render по необходимости).
 
 ## Секции лендинга
 
